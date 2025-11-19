@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><span class="gold-text">My</span>Portfolio</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutme.html">About Me</a></li>
+                    <li><a href="hobby.html">My Hobbies</a></li>
+                    <li><a href="places.html">Places Visited</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="education.html">Education</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>My <span class="gold-text">Gallery</span></h1>
+            <p>The photo's that i have on my phone gallery</p>
+        </div>
+    </section>
+
+    <section class="gallery-content">
+        <div class="container">
+            <div class="gallery-filters">
+      </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="travel">
+                    <img src="gallery1.jpg" alt="This photo was taken on Eid al-Fitr 2022, which my friends and I celebrated at school." class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>My favourite person</h3>
+                        <p>This picture was taken at the Pineng Hills.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="hobbies">
+                    <img src="gallery2.jpg" alt="Eid al-Fitr 2022" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Eid al-Fitr 2022</h3>
+                        <p>This photo was taken on Eid al-Fitr 2022, which my friends and I celebrated at school.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="personal">
+                    <img src="gallery3.jpg" alt="Kayak activity with my highschool friends" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Kayak activity with my highschool friends</h3>
+                        <p>This photo is one of the my favourite photo with my friends.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="travel">
+                    <img src="gallery4.jpg" alt="My batch mate" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>My batch mate</h3>
+                        <p>Our last year together at the school photo.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="hobbies">
+                    <img src="gallery5.jpg" alt="My most favourite photo in my entire gallery" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Ka'bah photo that i took</h3>
+                        <p>My most favourite photo in my entire gallery.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="travel">
+                    <img src="gallery6.jpg" alt="Sunrise view at Al-Aqsa" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Sunrise view at Al-Aqsa</h3>
+                        <p>I cant describe this photo, imagine you just finished ziarah Tomb of the Prophet Muhammad and Allah gave you this view.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="hobbies">
+                    <img src="gallery7.jpg" alt="Charcoal Portrait" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>One of the Korean Mount</h3>
+                        <p>I cant remember where this was but this moment i was hiking there with my brother.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="personal">
+                    <img src="gallery8.jpg" alt="N Seoul Tower" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>N Seoul Tower</h3>
+                        <p>A major landmark and tourist attraction in Seoul.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="travel">
+                    <img src="gallery9.jpg" alt="My nephew" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>My nephew</h3>
+                        <p>A cute photo of my nephew.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEAUTIFUL NAVIGATION BUTTONS -->
+    <section class="page-navigation">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="places.html" class="nav-btn back-btn">My Travels</a>
+                <a href="education.html" class="nav-btn next-btn">My Education</a>
+            </div>
+            <div class="page-progress">
+                <div class="progress-dots">
+                    <div class="progress-dot completed"></div>
+                    <div class="progress-dot completed"></div>
+                    <div class="progress-dot completed"></div>
+                    <div class="progress-dot completed"></div>
+                    <div class="progress-dot active"></div>
+                </div>
+                <span class="progress-text">Page 5 of 6</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple filter functionality for the gallery
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
